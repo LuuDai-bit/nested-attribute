@@ -1,0 +1,7 @@
+<h1>Create new question</h1>
+
+<%= form_with url: questions_path,
+              method: :post,
+              scope: :questions do |form| %>
+  <%= render partial: 'form', locals: { form: form } %>
+<% end %>

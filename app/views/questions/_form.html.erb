@@ -1,0 +1,19 @@
+<div class="form-group">
+  <%= form.label :question, 'Question' %>
+  <%= form.text_field :question, class: 'form-control', placeholder: 'AAA' %>
+</div>
+
+<%= form.hidden_field :require_flg, value: true %>
+<%= form.hidden_field :question_type, value: 0 %>
+
+<br>
+
+<div class="form-group">
+  <%= form.fields_for :answers do |answer| %>
+    <%= answer.label :answer, 'Answer' %>
+    <%= answer.text_field :anser, class: 'form-control', placeholder: 'BBB' %>
+  <% end %>
+</div>
+
+<%= form.submit('Save', class: 'btn btn-primary') %>
+<%= link_to('Cancel', questions_path, class: 'btn btn-secondary') %>
