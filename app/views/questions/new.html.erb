@@ -2,6 +2,6 @@
 
 <%= form_with model: @question,
               method: :post,
-              scope: :question do |form| %>
+              scope: :question, data: { turbo: false } do |form| %>
   <%= render partial: 'form', locals: { form: form, question: @question } %>
 <% end %>
