@@ -3,11 +3,16 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
-    # @question.answers.build
+    @question.answers.build
   end
 
   def create
     @question = Question.new(question_params)
+    if @question.save
+      redirect_to questions_path
+    else
+      render :new
+    end
   end
 
   private

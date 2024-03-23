@@ -1,7 +1,7 @@
 <h1>Create new question</h1>
 
-<%= form_with url: questions_path,
+<%= form_with model: @question,
               method: :post,
-              scope: :questions do |form| %>
-  <%= render partial: 'form', locals: { form: form } %>
+              scope: :question do |form| %>
+  <%= render partial: 'form', locals: { form: form, question: @question } %>
 <% end %>

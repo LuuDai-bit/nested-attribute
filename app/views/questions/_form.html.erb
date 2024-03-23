@@ -8,11 +8,14 @@
 
 <br>
 
-<div class="form-group">
+<div class="form-group" id="nested-answers-form">
   <%= form.fields_for :answers do |answer| %>
-    <%= answer.label :answer, 'Answer' %>
-    <%= answer.text_field :anser, class: 'form-control', placeholder: 'BBB' %>
+    <%= render partial: "answer_fields", locals: { f: answer } %>
   <% end %>
+
+  <div class="links">
+    <%= link_to_add_association "Add", form, :answers %>
+  </div>
 </div>
 
 <%= form.submit('Save', class: 'btn btn-primary') %>
