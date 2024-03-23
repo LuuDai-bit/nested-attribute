@@ -1,0 +1,7 @@
+<h1>Edit question</h1>
+
+<%= form_with model: @question,
+              method: :patch,
+              scope: :question do |form| %>
+  <%= render partial: 'form', locals: { form: form, question: @question } %>
+<% end %>
