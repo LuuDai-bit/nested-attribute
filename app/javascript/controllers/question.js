@@ -1,4 +1,4 @@
-$(window).on('load', function () {
+document.addEventListener('DOMContentLoaded', function () {
   const numberedNestedAnswer = () => {
     let num = 0
     let nestedAnswers = $(".nested-answers:visible").toArray()

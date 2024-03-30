@@ -1,5 +1,5 @@
 class QuestionTag < ApplicationRecord
-  CREATE_ATTRIBUTES = %i[tag_name].freeze
+  CREATE_ATTRIBUTES = %i[id tag_name _destroy].freeze
 
   belongs_to :question
 end

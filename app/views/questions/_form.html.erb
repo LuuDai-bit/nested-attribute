@@ -23,10 +23,13 @@
     <%= render partial: "question_tag_fields", locals: { f: question_tags } %>
   <% end %>
 
-  <%= text_field_tag :question, nil, {class: 'form-control', id: 'question_tags_id', placeholder: 'question tags'} %>
   <div class="links" id="add_question_tag_wrapper" style="display: none">
     <%= link_to_add_association "Add Question Tag", form, :question_tags, id: "add_question_tag" %>
   </div>
+</div>
+
+<div class="form-group">
+  <%= text_field_tag :question_tags, nil, {class: 'form-control', id: 'question_tags_id', placeholder: 'question tags'} %>
 </div>
 
 <%= form.submit('Save', class: 'btn btn-primary') %>
