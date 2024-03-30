@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_03_23_110205) do
+ActiveRecord::Schema[7.0].define(version: 2024_03_30_091403) do
   create_table "answer_details", force: :cascade do |t|
     t.string "detail", null: false
     t.integer "answer_id", null: false
@@ -27,6 +27,14 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_23_110205) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "question_tags", force: :cascade do |t|
+    t.string "tag_name", null: false
+    t.integer "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_question_tags_on_question_id"
+  end
+
   create_table "questions", force: :cascade do |t|
     t.string "question", null: false
     t.boolean "require_flg", null: false
@@ -37,4 +45,5 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_23_110205) do
 
   add_foreign_key "answer_details", "answers"
   add_foreign_key "answers", "questions"
+  add_foreign_key "question_tags", "questions"
 end
