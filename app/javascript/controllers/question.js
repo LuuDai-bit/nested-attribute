@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('turbo:load', function () {
   const numberedNestedAnswer = () => {
     let num = 0
     let nestedAnswers = $(".nested-answers:visible").toArray()
@@ -6,6 +6,24 @@ document.addEventListener('DOMContentLoaded', function () {
       num++
       let answerLabel = $(nestedAnswer).find(".answer-label")[0]
       answerLabel.innerHTML = "Answer" + num
+      createNewAnswer(num, nestedAnswer)
+    })
+  }
+
+  const createNewAnswer = (num, nestedAnswer) => {
+    let initValue = $(nestedAnswer).val()
+    let html = `<p id="answer-${num}">${initValue}<p>`
+    $('#survey-preview').append(html)
+
+    let nestedAnswerDOM = $(nestedAnswer)[0]
+    let eventNestedAnswer = $._data(nestedAnswerDOM, 'events')
+
+    if (eventNestedAnswer && eventNestedAnswer.change) return
+
+    $(nestedAnswer).on('change', (e) => {
+      console.log('hhoho')
+      let value = $(e.target).val()
+      $(`#answer-${num}`).html(value)
     })
   }
 
